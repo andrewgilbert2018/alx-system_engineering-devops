@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#a bash script displays hours and minutes using while loop
+
+a=0
+b=1
+while ((a < 13))
+do
+	echo "Hour: $a"
+	while ((b < 60))
+	do
+		echo "$b"
+		((b++))
+	done
+       ((b=1))
+       ((a++))
+done

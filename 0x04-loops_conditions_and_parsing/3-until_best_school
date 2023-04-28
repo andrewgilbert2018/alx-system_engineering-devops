@@ -6,5 +6,5 @@ a=0
 until ((a == 10))
 do
 	echo "Best School"
-	let a++
+       (( a++))
 done

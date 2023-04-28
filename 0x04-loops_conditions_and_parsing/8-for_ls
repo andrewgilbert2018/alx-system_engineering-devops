@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#a bash scriptthats displays the contents of the current directory In a list format Where only the part of the name after the first dash is displayed
+
+for a in *
+do
+	echo "${a/*-/}"
+done

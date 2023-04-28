@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#a bash script bad luck from China, bad luck from Japan, bad luck from Italy on certain iteration from 1 to 20
+
+a=0
+
+while ((a < 20))
+do
+       ((a++))
+	echo "$a"
+	case "$a" in
+	4) echo "bad luck from China"
+		;;
+	9) echo "bad luck from Japan"
+		;;
+	17) echo "bad luck from Italy"
+		;;
+esac
+done
+

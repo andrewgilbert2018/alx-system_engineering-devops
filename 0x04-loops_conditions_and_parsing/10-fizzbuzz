@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#a bash script displays number from 1 to 100 and also displays FizzBuzz,Buzz and Fizz at some point
+
+a=1
+
+while ((a < 101))
+do
+if ((a % 5 == 0 && a % 3 == 0))
+then
+	echo "FizzBuzz"
+elif ((a % 5 == 0))
+then
+	echo "Buzz"
+elif ((a % 3 == 0))
+then
+	echo "Fizz"
+else
+	echo "$a"
+fi
+       ((a++))
+done
+

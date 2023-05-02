@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#a bash script that displays it own PID on the screen.
+echo $$

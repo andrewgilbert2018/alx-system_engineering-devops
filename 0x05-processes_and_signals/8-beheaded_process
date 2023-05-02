@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#a bash script that kills the process 7-highlander on the screen
+kill --signal SIGKILL -f ./7-highlander

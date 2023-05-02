@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#a bash script that displays a list of currently runnning process on the screen
+ps faxu --forest

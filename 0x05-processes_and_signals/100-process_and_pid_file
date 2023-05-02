@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # a bash script that creates a file, displays To infinity and beyond, I hate the kill command, Y U no love me?! and deletes the file /var/run/myscript.pid on the screen
 sudo touch /var/run/alxscript.pid
-sudo bash -c 'echo $$ > /var/run/alx.pid'
-while true
+sudo bash -c 'echo $$ >/var/run/alx.pid'
+while ((1));
 do
     echo "To infinity and beyond"
     sleep 2
-    trap 'echo "I hate the kill command"; sudo rm /var/run/alxscript.pid; exit' SIGTERM
-    trap 'echo "Y U no love me?!"' SIGINT
-    trap 'sudo rm /var/run/alxscript.pid; exit' SIGQUIT
+    trap 'echo "I hate the kill command"; sudo rm /var/run/alxscript.pid; exit'SIGTERM
+    trap 'echo "Y U no love me?!"'SIGINT
+    trap 'sudo rm /var/run/alxscript.pid; exit'SIGQUIT
 done

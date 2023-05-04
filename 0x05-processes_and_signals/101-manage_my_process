@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#a bash script the manage process
+
+start() {
+        ./manage_my_process &
+	pgrep -f ./manage_my_process | sudo tee /var/run/my_process.pid > /dev/null
+        return
+}
+
+stop() {
+	pkill -f ./manage_my_process
+        sudo rm -f /var/run/my_process.pid
+        return
+}
+
+case "$1" in
+    start)
+	start
+	echo "manage_my_process started"
+        ;;
+    stop)
+	stop
+	echo "manage_my_process stopped"
+        ;;
+    restart)
+        stop
+	start
+	echo "manage_my_process restarted"
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        exit 1
+        ;;
+esac
+exit $?

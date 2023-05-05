@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# a bash script the displays listing ports on the screen
+netstat -pl
+

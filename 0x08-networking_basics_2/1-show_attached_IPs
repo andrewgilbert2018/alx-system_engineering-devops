@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #a bash screipt the displays all active IPV4 IP of a machine on the screen
-ifconfig | awk -f "[: ]+" '/inet addr/ { print $4 }'
+ifconfig | awk -F "[: ]+" '/inet addr/ { print $2, $4 }'
 

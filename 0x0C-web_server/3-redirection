@@ -6,5 +6,5 @@ sudo chmod 666 /var/www/html/index.nginx-debian.html
 sudo chmod 666 /usr/share/nginx/html/index.html
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 echo "Hello World!" > /usr/share/nginx/html/index.html
-sed -i  's/# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000/rewrite \/redirect_me\/ 301  https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
+sed -i  's/# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000/rewrite \/redirect_me\/  https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent 301;/' /etc/nginx/sites-available/default
 sudo service nginx restart

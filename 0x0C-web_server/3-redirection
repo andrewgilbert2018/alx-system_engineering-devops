@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 # a bash script that install nginx in a server
-sudo apt update
-sudo apt -y install nginx
-sudo chmod 666 /var/www/html/index.nginx-debian.html
-sudo chmod 666 /usr/share/nginx/html/index.html
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-echo "Hello World!" > /usr/share/nginx/html/index.html
-num="$((grep -c -P '^\tlocation \/redirect_me' < /etc/nginx/sites-available/default))"
-if [[ "$num" -eq 0 ]]
+apt-get update -y
+apt-get upgrade -y
+apt-get install nginx -y
+echo "Hello World" > /usr/share/nginx/html/index.html
+num="$(grep -c -P '^\tlocation \/redirect_me' < /etc/nginx/sites-available/default)"
+if [ "$num" -eq 0 ]
 then
 	sed -i '/^\tserver_name/ a\\n\tlocation \/redirect_me \{\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t\}\n' /etc/nginx/sites-available/default
 fi
-sudo service nginx restart
+service nginx restart

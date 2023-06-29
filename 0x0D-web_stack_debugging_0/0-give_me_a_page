@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# a bash script that fix non working request
+sudo service apache2 restart

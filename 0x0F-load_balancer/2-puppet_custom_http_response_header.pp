@@ -6,7 +6,7 @@ ensure => installed,
 }
 
 ->file {'/var/www/html/index.html':
-content => 'Holberton School for the win yeah!\n',
+content => 'Hollo World!\n',
 }
 
 ->file_line {'add protocol':

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# install haproxy in a new server
+sudo apt -y update
+sudo apt install -y haproxy
+
+OUT=/etc/haproxy/haproxy.cfg
+  
+cat <<EOF >>$OUT
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 218444-web-01 54.157.154.38:80 check
+   server 218444-web-02 52.91.151.18:80 check
+EOF
+echo "ENABLED=1" >> /etc/default/haproxy
+sudo service haproxy restart

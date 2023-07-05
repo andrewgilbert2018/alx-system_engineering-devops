@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# install nginx in a new server
+sudo apt update
+sudo apt -y install nginx
+sudo chmod 666 /var/www/html/index.nginx-debian.html
+sudo chmod 666 /usr/share/nginx/html/index.html
+touch /usr/share/nginx/html/404.html
+sudo chmod 666 /usr/share/nginx/html/404.html
+echo "Best School!" > /var/www/html/index.nginx-debian.html
+echo "Best School!" > /usr/share/nginx/html/index.html
+
+MY_HOST=$HOSTNAME
+sed -i  's/# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000/rewrite \/redirect_me\/   https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
+printf "Ceci n'est pas une page\n" > /usr/share/nginx/html/404.html
+sed -i 's/#location ~ \\.php$ {/error_page 404 \/404.html;/' /etc/nginx/sites-available/default
+sed -i 's/#location ~ \/\\.ht {/location = \/404.html { root \/usr\/share\/nginx\/html;internal; }/' /etc/nginx/sites-available/default
+sed -i "/listen 80 default_server;/a add_header X-Served-By ${MY_HOST};" /etc/nginx/sites-available/default
+
+
+
+sudo service nginx restart

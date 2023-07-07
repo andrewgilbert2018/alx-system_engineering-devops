@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# a bash script that prints information about DNS
+function print_template {
+	echo The subdomain "$1" is a "$3" record and points to "$2"
+}
+if [[ $# == 1 ]]; then
+	# Have domain only
+	my_array=(www lb-01 web-01 web-02)
+	for i in "${my_array[@]}"; do 
+		address=$(dig $i."$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $5)}')
+		record=$(dig $i."$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $4)}')
+		print_template "$i" "$address" "$record"
+	done
+elif [[ $# == 2 ]]; then
+	# Have domain and sub domain
+	address=$(dig $2."$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $5)}')
+	record=$(dig "$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{printf ("%s", $4)}')
+	print_template "$2" "$address" "$record"
+fi

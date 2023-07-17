@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# uses ufw with allowed ssh, http, https ports
+sudo ufw allow ssh
+sudo ufw allow https
+sudo ufw allow http
+sudo ufw enable
+sudo ufw reload

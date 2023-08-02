@@ -31,5 +31,6 @@ def main():
     with open("{}.json".format(number), "w") as file:
         json.dump(user_dict, file)
 
+
 if __name__ == '__main__':
     main()

@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-A python script that request the top ten hot posts
-"""
+"""Function to count words in all hot posts of a given Reddit subreddit."""
 import requests
 
 

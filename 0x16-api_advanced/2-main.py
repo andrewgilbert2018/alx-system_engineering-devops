@@ -14,7 +14,3 @@ if __name__ == '__main__':
             print(len(result))
         else:
             print("None")
-wintermancer@lapbox ~/reddit_api/project $ python3 2-main.py programming
-932
-wintermancer@lapbox ~/reddit_api/project $ python3 2-main.py this_is_a_fake_subreddit
-None

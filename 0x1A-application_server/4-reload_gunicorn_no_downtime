@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Reload Gunicor
+sudo pkill -HUP gunicorn
